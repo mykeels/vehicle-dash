@@ -23,9 +23,9 @@
             <DropdownMenuItem>
               <template slot="text">
                 <span class="avatar">
-                  <img src="http://via.placeholder.com/30x30" class="rounded" alt="user avatar">
+                  <img :src="photo || 'http://via.placeholder.com/30x30'" class="rounded" alt="user avatar">
                 </span>
-                Aminujatto Abdulqahhar
+                {{ name }}
               </template>
               <template>
                 <!-- <div tabindex="-1" class="dropdown-divider"></div> -->
@@ -46,6 +46,14 @@
     name: 'Navigation',
     components: {
       DropdownMenuItem
+    },
+    computed: {
+      name () {
+        return this.$store.state.user.name
+      },
+      photo () {
+        return this.$store.state.user.photo
+      }
     }
   }
 </script>

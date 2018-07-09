@@ -58,6 +58,7 @@ export default {
     this.$store.commit(RESTORE_TOKEN)
     if (this.$store.state.token) {
       const user = jwt.decode(this.$store.state.token)
+      console.log(user)
       if (user) {
         this.$store.commit(LOGIN_USER, { ...user.UserInfo, token: this.$store.state.token })
         return this.$router.push({ name: 'dashboard' })

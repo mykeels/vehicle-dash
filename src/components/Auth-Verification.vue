@@ -12,6 +12,7 @@
         if (!user || user.aud != 'andela.com') {
           this.$router.push({ name: 'login' })
         }
+        console.log(user)
       }
       else {
         this.$router.push({ name: 'login' })
