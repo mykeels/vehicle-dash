@@ -5,7 +5,7 @@
       <div class="guest-list-container">
           <div class="guest-list-top-section">
               <div class="guest-list-table-title">
-                  <span class="table-title-text">Today's Guests</span>
+                  <span class="table-title-text">Vehicles</span>
                   <div class="line">
                       <span class="long-line"></span>
                       <span class="short-line"></span>
@@ -13,66 +13,12 @@
               </div>
               <div class="add-guest-container">
                   <div class="add-guest-btn"  onClick={this.toggle}>
-                      <span>Add Guest</span>
+                      <span>Add Vehicle</span>
                   </div>
               </div>
           </div>
           <div class="guest-list-table-section">
-              <table class="table table-striped">
-                  <thead>
-                      <tr>
-                          <th scope="col">#</th>
-                          <th scope="col">Guest Name</th>
-                          <th scope="col">Host Name</th>
-                          <th scope="col">Time In</th>
-                          <th scope="col">Time Out</th>
-                          <th scope="col">Tag No.</th>
-                          <th scope="col">Date</th>
-                          <th scope="col">Actions</th>
-                      </tr>
-                  </thead>
-                  <tbody>
-                      <tr>
-                          <th scope="row">1</th>
-                          <td>Grace Ajuya</td>
-                          <td>Joseph Cobhams</td>
-                          <td>12-01-2018 13:30</td>
-                          <td>12-01-2018 15:30</td>
-                          <td>AND20190</td>
-                          <td>12-01-2018</td>
-                          <td>
-                              <span class="edit-icon"></span>
-                              <span class="remove-icon"></span>
-                          </td>
-                      </tr>
-                      <tr>
-                          <th scope="row">2</th>
-                          <td>Grace Ajuya</td>
-                          <td>Joseph Cobhams</td>
-                          <td>12-01-2018 13:30</td>
-                          <td>12-01-2018 15:30</td>
-                          <td>AND20190</td>
-                          <td>12-01-2018</td>
-                          <td>
-                              <span class="edit-icon"></span>
-                              <span class="remove-icon"></span>
-                          </td>
-                      </tr>
-                      <tr>
-                          <th scope="row">3</th>
-                          <td>Grace Ajuya</td>
-                          <td>Joseph Cobhams</td>
-                          <td>12-01-2018 13:30</td>
-                          <td>12-01-2018 15:30</td>
-                          <td>AND20190</td>
-                          <td>12-01-2018</td>
-                          <td>
-                              <span class="edit-icon"></span>
-                              <span class="remove-icon"></span>
-                          </td>
-                      </tr>
-                  </tbody>
-              </table>
+            <v-client-table :data="tableData" :columns="columns" :options="options"></v-client-table>
           </div>
           <Modal>
               <div class="action-form-container">
@@ -96,6 +42,38 @@
       Footer,
       Modal,
       Navigation
+    },
+    computed: {
+      options () {
+        return {
+
+        }
+      }
+    },
+    data () {
+      return {
+        columns: [ 'id', 'owner', 'reg_no' ],
+        tableData: [
+          {
+            id: 14,
+            owner: 'Joseph Cobhams',
+            reg_no: '12345',
+            slack_id: 'U8GSNUN8Z'
+          },
+          {
+            id: 17,
+            owner: 'Abdulqahhar Aminujatto',
+            reg_no: '098765',
+            slack_id: 'U6HKDGE6L'
+          },
+          {
+            id: 18,
+            owner: 'Jolomi Otumara',
+            reg_no: 'fst-776-cx',
+            slack_id: 'U740UK4SG'
+          }
+        ]
+      }
     }
   }
 </script>
