@@ -29,7 +29,7 @@
               </template>
               <template>
                 <!-- <div tabindex="-1" class="dropdown-divider"></div> -->
-                <button type="button" tabindex="0" class="dropdown-item">Log Out</button>
+                <button type="button" tabindex="0" class="dropdown-item" @click="logout">Log Out</button>
               </template>
             </DropdownMenuItem>
           </ul>
@@ -41,6 +41,7 @@
 
 <script>
   import DropdownMenuItem from './DropdownMenuItem';
+  import { RESET_AUTH } from '../../store/store.constants';
 
   export default {
     name: 'Navigation',
@@ -53,6 +54,12 @@
       },
       photo () {
         return this.$store.state.user.photo
+      }
+    },
+    methods: {
+      logout () {
+        this.$store.commit(RESET_AUTH)
+        this.$router.push({ name: 'login' })
       }
     }
   }

@@ -19,9 +19,14 @@ export default {
     state.token = stor.get('access-token')
   },
 
-  CLEAR_TOKEN (state) {
+  RESET_AUTH (state) {
     stor.remove('access-token')
     state.token = null
+    state.user.firstName = null
+    state.user.lastName = null
+    state.user.name = null
+    state.user.email = null
+    state.user.photo = null
     Vue.http.headers.common.Authorization = null
   }
 }
