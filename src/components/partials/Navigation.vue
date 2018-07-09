@@ -60,7 +60,6 @@
     }
     .navigation-logo {
         width: 10rem;
-        height: 100%;
     }
     li.nav-item {
         margin-left: 1.2rem;
