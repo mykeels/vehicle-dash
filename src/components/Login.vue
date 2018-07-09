@@ -13,6 +13,7 @@
               <a :href="redirectUrl">
                 <img src="/static/images/google-btn.svg" class="Andela-App-logo" alt="andela-logo" />
               </a>
+              <div class="error-text" v-if="errorText">{{ errorText }}</div>
             </div>
           </div>
         </div>
@@ -29,11 +30,16 @@
 </template>
 
 <script>
+import { url } from '../config'
+
 export default {
   name: 'Login',
+  props: {
+    errorText: String
+  },
   computed: {
     redirectUrl () {
-      return 'https://api-prod-wip.andela.com/login?redirect_url=' + encodeURIComponent(location.href)
+      return 'https://api-prod-wip.andela.com/login?redirect_url=' + encodeURIComponent(url('auth'))
     }
   },
   data () {
@@ -48,6 +54,13 @@ export default {
   }
 }
 </script>
+
+<style>
+  .error-text {
+    color: red;
+  }
+</style>
+
 
 <style lang="scss" src="./Login.scss">
 
