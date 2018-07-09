@@ -27,6 +27,11 @@ export default {
     state.user.name = null
     state.user.email = null
     state.user.photo = null
+
     Vue.http.headers.common.Authorization = null
+  },
+
+  SET_VEHICLES (state, { vehicles }) {
+    state.vehicles = vehicles
   }
 }

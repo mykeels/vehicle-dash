@@ -66,9 +66,9 @@
         EventBus.$emit('modal-add-vehicle:show')
       },
       loadVehicles () {
-        this.$http.get(api('vehicles')).then(response => {
-          console.log('vehicles', vehicles)
-
+        this.$http.get(api('vehicles')).then(response => response.json()).then(response => {
+          console.log('vehicles', response)
+          this.$store.commit('SET_VEHICLES', response)
         }).catch(err => {
           console.error('vehicles', err)
         })
