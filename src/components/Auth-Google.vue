@@ -6,6 +6,7 @@
   import Login from './Login'
   import queryString from 'query-string'
   import jwt from 'jsonwebtoken'
+  import stor from '../utils/stor'
   import { LOGIN_USER } from '../store/store.constants'
 
   export default {

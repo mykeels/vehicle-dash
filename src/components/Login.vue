@@ -31,6 +31,8 @@
 
 <script>
 import { url } from '../config'
+import jwt from 'jsonwebtoken'
+import { LOGIN_USER, RESTORE_TOKEN } from '../store/store.constants'
 
 export default {
   name: 'Login',
@@ -50,6 +52,16 @@ export default {
   methods: {
     showDashboard () {
       this.$router.push('dashboard')
+    }
+  },
+  mounted () {
+    this.$store.commit(RESTORE_TOKEN)
+    if (this.$store.state.token) {
+      const user = jwt.decode(this.$store.state.token)
+      if (user) {
+        this.$store.commit(LOGIN_USER, { ...user.UserInfo, token: this.$store.state.token })
+        return this.$router.push({ name: 'dashboard' })
+      }
     }
   }
 }

@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import stor from '../utils/stor'
 
 export default {
   LOGIN_USER (state, { firstName, lastName, name, email, token }) {
@@ -9,5 +10,17 @@ export default {
     state.token = token
 
     Vue.http.headers.common.Authorization = token ? ('Bearer ' + token) : null
+
+    stor.add('access-token', token)
+  },
+
+  RESTORE_TOKEN (state) {
+    state.token = stor.get('access-token')
+  },
+
+  CLEAR_TOKEN (state) {
+    stor.remove('access-token')
+    state.token = null
+    Vue.http.headers.common.Authorization = null
   }
 }
