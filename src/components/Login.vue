@@ -9,7 +9,7 @@
               <h1>Andela Dash</h1>
               <p>Sign in to access your account.</p>
             </div>
-            <div class="google-btn-panel" onClick={this.loginUser}>
+            <div class="google-btn-panel" @click="showDashboard">
               <img src="/static/images/google-btn.svg" class="Andela-App-logo" alt="andela-logo" />
             </div>
           </div>
@@ -28,7 +28,12 @@
 
 <script>
 export default {
-  name: 'Login'
+  name: 'Login',
+  methods: {
+    showDashboard () {
+      this.$router.push('dashboard')
+    }
+  }
 }
 </script>
 

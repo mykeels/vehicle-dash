@@ -1,28 +1,24 @@
 <template>
-   <div className="Dashboard">
-      <div className="navigation-container">
-          <Navigation
-              isOpen={this.state.isNavDropdownOpen}
-              toggle={this.toggleHamburgerNav}
-          />
-      </div>
-      <div className="guest-list-container">
-          <div className="guest-list-top-section">
-              <div className="guest-list-table-title">
-                  <span className="table-title-text">Today's Guests</span>
-                  <div className="line">
-                      <span className="long-line"></span>
-                      <span className="short-line"></span>
+   <div class="Dashboard">
+      <Navigation />
+
+      <div class="guest-list-container">
+          <div class="guest-list-top-section">
+              <div class="guest-list-table-title">
+                  <span class="table-title-text">Today's Guests</span>
+                  <div class="line">
+                      <span class="long-line"></span>
+                      <span class="short-line"></span>
                   </div>
               </div>
-              <div className="add-guest-container">
-                  <div className="add-guest-btn"  onClick={this.toggle}>
+              <div class="add-guest-container">
+                  <div class="add-guest-btn"  onClick={this.toggle}>
                       <span>Add Guest</span>
                   </div>
               </div>
           </div>
-          <div className="guest-list-table-section">
-              <table className="table table-striped">
+          <div class="guest-list-table-section">
+              <table class="table table-striped">
                   <thead>
                       <tr>
                           <th scope="col">#</th>
@@ -45,8 +41,8 @@
                           <td>AND20190</td>
                           <td>12-01-2018</td>
                           <td>
-                              <span className="edit-icon" onClick={() => this.toggle(false)}></span>
-                              <span className="remove-icon"></span>
+                              <span class="edit-icon"></span>
+                              <span class="remove-icon"></span>
                           </td>
                       </tr>
                       <tr>
@@ -58,8 +54,8 @@
                           <td>AND20190</td>
                           <td>12-01-2018</td>
                           <td>
-                              <span className="edit-icon"></span>
-                              <span className="remove-icon"></span>
+                              <span class="edit-icon"></span>
+                              <span class="remove-icon"></span>
                           </td>
                       </tr>
                       <tr>
@@ -71,19 +67,40 @@
                           <td>AND20190</td>
                           <td>12-01-2018</td>
                           <td>
-                              <span className="edit-icon"></span>
-                              <span className="remove-icon"></span>
+                              <span class="edit-icon"></span>
+                              <span class="remove-icon"></span>
                           </td>
                       </tr>
                   </tbody>
               </table>
           </div>
-          <ModalContainer isModalOpen={this.state.isModalOpen} toggle={this.toggle} isAdd={this.state.isAdd} addAction={this.addAction} editAction={this.editAction}>
-              <div className="action-form-container">
-                  {this.state.isAdd ? <FormContainer hostNameId={"addHostName"} guestNameId={"addGuestName"} /> : <FormContainer hostNameId={"editHostName"} guestNameId={"editGuestName"} />}
+          <Modal>
+              <div class="action-form-container">
+                  Hello World
               </div>
-          </ModalContainer>
+          </Modal>
       </div>
+
+    <Footer />
   </div>
-  <Footer />
 </template>
+
+<script>
+  import Footer from './partials/Footer';
+  import Modal from './partials/Modal';
+  import Navigation from './partials/Navigation';
+
+  export default {
+    name: 'Dashboard',
+    components: {
+      Footer,
+      Modal,
+      Navigation
+    }
+  }
+</script>
+
+<style lang="scss" src="./Dashboard.scss">
+
+</style>
+
