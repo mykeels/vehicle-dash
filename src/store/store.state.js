@@ -1,4 +1,10 @@
 export default {
+  user: {
+    email: null,
+    name: null,
+    id: null
+  },
+  token: null,
   vehicles: [
     {
       id: 14,
