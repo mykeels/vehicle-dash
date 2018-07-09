@@ -35,6 +35,7 @@
   import AddVehicleModal from './Add-Vehicle-Modal';
   import AuthVerification from './Auth-Verification'
   import { EventBus } from '../EventBus'
+  import { api } from '../config'
 
   export default {
     name: 'Dashboard',
@@ -63,7 +64,18 @@
     methods: {
       showAddVehicleModal () {
         EventBus.$emit('modal-add-vehicle:show')
+      },
+      loadVehicles () {
+        this.$http.get(api('vehicles')).then(response => {
+          console.log('vehicles', vehicles)
+
+        }).catch(err => {
+          console.error('vehicles', err)
+        })
       }
+    },
+    mounted () {
+      this.loadVehicles()
     }
   }
 </script>
