@@ -51,12 +51,16 @@
             noCancel: Boolean,
             noButtons: Boolean,
             info: Object,
-            className: String,
             cancelText: String,
             okText: String,
             onCancel: Function,
             noWrapperClose: Boolean,
             isVisible: Boolean
+        },
+        computed: {
+          className () {
+            return `modal${this.name ? '-' + this.name : ''}`;
+          }
         },
         data() {
             return {

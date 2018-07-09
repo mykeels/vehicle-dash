@@ -20,11 +20,7 @@
           <div class="guest-list-table-section">
             <v-client-table :data="tableData" :columns="columns" :options="options"></v-client-table>
           </div>
-          <Modal>
-              <div class="action-form-container">
-                  Hello World
-              </div>
-          </Modal>
+          <Add-Vehicle-Modal />
       </div>
 
     <Footer />
@@ -35,13 +31,15 @@
   import Footer from './partials/Footer';
   import Modal from './partials/Modal';
   import Navigation from './partials/Navigation';
+  import AddVehicleModal from './Add-Vehicle-Modal';
 
   export default {
     name: 'Dashboard',
     components: {
       Footer,
       Modal,
-      Navigation
+      Navigation,
+      AddVehicleModal
     },
     computed: {
       options () {
@@ -60,6 +58,13 @@
     }
   }
 </script>
+
+<style>
+  .modal-add-vehicle .modal-container {
+    width: 60%;
+  }
+</style>
+
 
 <style lang="scss" src="./Dashboard.scss">
 
