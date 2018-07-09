@@ -1,5 +1,5 @@
 <template>
-  <Modal name="add-vehicle" :is-visible="true">
+  <Modal name="add-vehicle">
     <template slot="title">
       <h4 class="modal-title">Add Vehicle</h4>
     </template>

@@ -12,7 +12,7 @@
                   </div>
               </div>
               <div class="add-guest-container">
-                  <div class="add-guest-btn"  onClick={this.toggle}>
+                  <div class="add-guest-btn" @click="showAddVehicleModal">
                       <span>Add Vehicle</span>
                   </div>
               </div>
@@ -32,6 +32,7 @@
   import Modal from './partials/Modal';
   import Navigation from './partials/Navigation';
   import AddVehicleModal from './Add-Vehicle-Modal';
+  import { EventBus } from '../EventBus'
 
   export default {
     name: 'Dashboard',
@@ -54,6 +55,11 @@
     data () {
       return {
         columns: [ 'id', 'owner', 'reg_no' ]
+      }
+    },
+    methods: {
+      showAddVehicleModal () {
+        EventBus.$emit('modal-add-vehicle:show')
       }
     }
   }
