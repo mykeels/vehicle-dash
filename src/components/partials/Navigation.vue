@@ -28,8 +28,7 @@
                 Aminujatto Abdulqahhar
               </template>
               <template>
-                <button type="button" tabindex="0" class="dropdown-item">Guest History</button>
-                <div tabindex="-1" class="dropdown-divider"></div>
+                <!-- <div tabindex="-1" class="dropdown-divider"></div> -->
                 <button type="button" tabindex="0" class="dropdown-item">Log Out</button>
               </template>
             </DropdownMenuItem>
