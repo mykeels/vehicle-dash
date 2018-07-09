@@ -5,5 +5,5 @@ export const api = function (url) {
 }
 
 export const url = function (path) {
-  return '/' + path;
+  return location.origin + '/' + path;
 }
