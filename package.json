@@ -12,6 +12,8 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "jsonwebtoken": "^8.3.0",
+    "query-string": "^6.1.0",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1",
     "vue-tables-2": "^1.4.63"
