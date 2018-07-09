@@ -20,19 +20,19 @@
                 </div>
               </div>
             </li>
-            <li class="dropdown show nav-item">
-              <a aria-haspopup="true" href="#" class="dropdown-toggle nav-link" aria-expanded="true">
+            <DropdownMenuItem>
+              <template slot="text">
                 <span class="avatar">
                   <img src="http://via.placeholder.com/30x30" class="rounded" alt="user avatar">
                 </span>
                 Aminujatto Abdulqahhar
-              </a>
-              <div tabindex="-1" role="menu" aria-hidden="false" class="dropdown-menu dropdown-menu-right show">
+              </template>
+              <template>
                 <button type="button" tabindex="0" class="dropdown-item">Guest History</button>
                 <div tabindex="-1" class="dropdown-divider"></div>
                 <button type="button" tabindex="0" class="dropdown-item">Log Out</button>
-              </div>
-            </li>
+              </template>
+            </DropdownMenuItem>
           </ul>
         </div>
       </nav>
@@ -41,8 +41,13 @@
 </template>
 
 <script>
+  import DropdownMenuItem from './DropdownMenuItem';
+
   export default {
-    name: 'Navigation'
+    name: 'Navigation',
+    components: {
+      DropdownMenuItem
+    }
   }
 </script>
 
