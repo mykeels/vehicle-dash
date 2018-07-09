@@ -3,6 +3,7 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import store from './store'
 import { ClientTable } from 'vue-tables-2'
 
 Vue.config.productionTip = false
@@ -13,6 +14,7 @@ Vue.use(ClientTable, {}, false);
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })
