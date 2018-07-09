@@ -10,7 +10,7 @@
         </button>
         <div class="collapse navbar-collapse">
           <ul class="ml-auto navbar-nav">
-            <li class="nav-item">
+            <li class="nav-item opacity-0">
               <div class="input-group">
                 <input placeholder="search" type="text" class="form-control">
                 <div class="input-group-append">
@@ -56,7 +56,9 @@
 
 .Navigation {
     color: $andela-grey-text;
-
+    .opacity-0 {
+      visibility: hidden;
+    }
     .navigation-logo {
         width: 10rem;
         height: 100%;
