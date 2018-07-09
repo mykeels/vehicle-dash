@@ -21,6 +21,7 @@
             <v-client-table :data="tableData" :columns="columns" :options="options"></v-client-table>
           </div>
           <Add-Vehicle-Modal />
+          <Auth-Verification />
       </div>
 
     <Footer />
@@ -32,6 +33,7 @@
   import Modal from './partials/Modal';
   import Navigation from './partials/Navigation';
   import AddVehicleModal from './Add-Vehicle-Modal';
+  import AuthVerification from './Auth-Verification'
   import { EventBus } from '../EventBus'
 
   export default {
@@ -40,7 +42,8 @@
       Footer,
       Modal,
       Navigation,
-      AddVehicleModal
+      AddVehicleModal,
+      AuthVerification
     },
     computed: {
       options () {

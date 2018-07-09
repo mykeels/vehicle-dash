@@ -33,7 +33,7 @@
           const user = jwt.decode(queries.token)
           if (!user) throw new Error('Could not parse token')
           this.$store.commit(LOGIN_USER, { ...user.UserInfo, ...queries })
-          return this.$router.push('dashboard')
+          return this.$router.push({ name: 'dashboard' })
         }
         catch (ex) {
           this.errorText = ex.message || 'An error occurred'

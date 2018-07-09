@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Login from '@/components/Login'
 import Dashboard from '@/components/Dashboard'
-import AuthGoogle from '@/components/AuthGoogle'
+import AuthGoogle from '@/components/Auth-Google'
 
 Vue.use(Router)
 
