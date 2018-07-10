@@ -76,9 +76,7 @@
       },
       loadVehicles () {
         this.loaders.loadVehicles = true
-        this.$http.get(api('vehicles')).then(response => response.json()).then(response => {
-          console.log('vehicles', response)
-          this.$store.commit('SET_VEHICLES', response)
+        return this.$store.dispatch('LOAD_VEHICLES').then(response => {
           this.loaders.loadVehicles = false
         }).catch(err => {
           console.error('vehicles', err)
