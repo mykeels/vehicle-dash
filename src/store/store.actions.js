@@ -6,9 +6,6 @@ export default {
       console.log('vehicles', response)
       commit('SET_VEHICLES', response)
       return response
-    }).catch(err => {
-      console.error('vehicles', err)
-      this.loaders.loadVehicles = false
     })
   },
 
@@ -16,8 +13,13 @@ export default {
     return this.$http.post(api('vehicle'), vehicle).then(response => response.json()).then(response => {
       console.log('vehicle:add', response)
       return dispatch('LOAD_VEHICLES')
-    }).catch(err => {
-      console.error('vehicle:add', err)
+    })
+  },
+
+  REMOVE_VEHICLE ({ dispatch }, { license_plate }) {
+    return this.$http.delete(api(`vehicle/${license_plate}`)).then(response => response.json()).then(response => {
+      console.log('vehicle:remove', response)
+      return dispatch('LOAD_VEHICLES')
     })
   }
 }

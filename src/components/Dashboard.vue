@@ -22,7 +22,19 @@
               </div>
           </div>
           <div class="guest-list-table-section">
-            <v-client-table :data="tableData" :columns="columns" :options="options"></v-client-table>
+            <v-client-table :data="tableData" :columns="columns" :options="options">
+              <template slot="edit" slot-scope="props">
+                <span class="edit-icon"></span>
+              </template>
+              <template slot="remove" slot-scope="props">
+                <div class="text-center">
+                  <span class="remove-icon" title="Remove this Vehicle" @click="removeVehicle(props.row)"></span>
+                </div>
+              </template>
+              <template slot="h__remove">
+                <span></span>
+              </template>
+            </v-client-table>
           </div>
           <Add-Vehicle-Modal />
           <Auth-Verification />
@@ -64,9 +76,10 @@
     },
     data () {
       return {
-        columns: [ 'id', 'owner', 'reg_no' ],
+        columns: [ 'id', 'owner', 'reg_no', 'remove' ],
         loaders: {
-          loadVehicles: false
+          loadVehicles: false,
+          removeVehicle: false
         }
       }
     },
@@ -82,6 +95,17 @@
           console.error('vehicles', err)
           this.loaders.loadVehicles = false
         })
+      },
+      removeVehicle ({ reg_no }) {
+        if (confirm('Are you sure you want to remove this vehicle?')) {
+          this.loaders.removeVehicle = true
+          return this.$store.dispatch('REMOVE_VEHICLE', { license_plate: reg_no }).then(response => {
+            this.loaders.removeVehicle = false
+          }).catch(err => {
+            console.error('vehicles:remove', err)
+            this.loaders.removeVehicle = false
+          })
+        }
       }
     },
     mounted () {
