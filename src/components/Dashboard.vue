@@ -28,7 +28,9 @@
               </template>
               <template slot="remove" slot-scope="props">
                 <div class="text-center">
-                  <span class="remove-icon" title="Remove this Vehicle" @click="removeVehicle(props.row)"></span>
+                  <span class="remove-icon" title="Remove this Vehicle"
+                    @click="removeVehicle(props.row)"></span>
+                  <loader v-if="loaders.removeVehicle"></loader>
                 </div>
               </template>
               <template slot="h__remove">
@@ -97,6 +99,7 @@
         })
       },
       removeVehicle ({ reg_no }) {
+        console.log(...arguments)
         if (confirm('Are you sure you want to remove this vehicle?')) {
           this.loaders.removeVehicle = true
           return this.$store.dispatch('REMOVE_VEHICLE', { license_plate: reg_no }).then(response => {
