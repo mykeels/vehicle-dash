@@ -8,7 +8,7 @@
         </h4>
       </div>
       <div class="col-sm-2">
-        <loader />
+        <loader v-if="loaders.addVehicle" />
       </div>
     </template>
     <div class="action-form-container">
@@ -25,6 +25,7 @@
           <button class="hidden">Submit</button>
         </form>
       </div>
+      <notifications name="add-vehicle"></notifications>
     </div>
   </Modal>
 </template>
@@ -32,6 +33,8 @@
 <script>
   import Modal from './partials/Modal';
   import Loader from './partials/Loader'
+  import Notifications from './partials/Notifications'
+  import { EventBus } from '../EventBus'
   import { api } from '../config'
 
   export default {
@@ -63,7 +66,8 @@
     },
     components: {
       Modal,
-      Loader
+      Loader,
+      Notifications
     },
     methods: {
       submit (e) {
@@ -72,6 +76,7 @@
         return this.$store.dispatch('ADD_VEHICLE', this.form).then(response => {
           this.loaders.addVehicle = false
           this.reset()
+          this.displayMessage()
         }).catch(err => {
           console.error('vehicle:add', err)
           this.loaders.addVehicle = false
@@ -80,6 +85,11 @@
       reset () {
         this.form.email = null
         this.form.license_plate = null
+      },
+      displayMessage () {
+        EventBus.$emit('notifications-add-vehicle:create', {
+          text: 'Vehicle added successfully'
+        })
       }
     },
     mounted () {
